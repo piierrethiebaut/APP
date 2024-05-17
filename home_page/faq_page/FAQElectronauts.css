@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+/* Couleurs */
+:root {
+  --bg: url('https://cdn.pixabay.com/photo/2022/04/21/06/11/waves-7146711_1280.jpg');
+  --text: #000000; /* Noir pour le texte */
+  --gray: #bdc3c7;
+  --lightgray: #ecf0f1;
+  --question: #000000; /* Noir pour les questions */
+  --hover: #30d2be; /* Bleu turquoise pour le hover */
+  --box-bg: #ffffff; /* Couleur de fond pour les cadres des questions */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hind', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  min-height: 100vh;
+}
+*/
+
+.container {
+  margin: auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 60rem;
+}
+
+.accordion-title {
+	color: black;
+}
+/* Style pour le titre "FAQ" */
+.faq-title {
+  font-size: 2.5rem;
+  color: var(--question);
+  text-align: center; /* Centre le titre */
+  margin-bottom: 2rem; /* Espace en dessous du titre */
+}
+
+.accordion .accordion-item {
+  background-color: var(--box-bg); /* Couleur de fond pour les cadres */
+  margin-bottom: 1rem; /* Espace entre les cadres */
+  padding: 0.5rem; /* Espace à l'intérieur du cadre */
+  border-radius: 10px; /* Bords arrondis pour le cadre */
+}
+
+.accordion button {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1.5em 0.5em;
+  color: var(--question);
+  font-size: 1.3rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+  transition: color 200ms ease-in-out;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: var(--hover); /* Changement de couleur au survol */
+}
+
+/* Cacher le contenu par défaut */
+.accordion .accordion-content {
+  display: none; /* Masque le contenu */
+}
+
+/* Afficher le contenu lorsque la question est activée */
+.accordion button[aria-expanded='true'] + .accordion-content {
+  display: block; /* Affiche le contenu */
+  padding: 1rem; /* Espace autour du contenu */
+  background: var(--lightgray); /* Couleur de fond pour le contenu */
+  border-radius: 0 0 10px 10px; /* Bords arrondis en bas du contenu */
+  transition: all 200ms ease-in-out; /* Transition douce pour l'affichage */
+}
+
+.back-to-home button {
+  color: white; /* Changement de couleur du texte en blanc */
+}
+
+.back-to-home {
+  text-align: center; /* Centre le bouton */
+}
+
+.back-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: white; /* Fond blanc */
+  color: var(--question); /* Texte noir */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out; /* Transition pour le changement de couleur */
+  display: block; /* Affiche en tant que bloc pour pouvoir centrer */
+  margin: auto; /* Centre horizontalement */
+}
+
+.back-button:hover {
+  background-color: var(--hover); /* Fond en bleu turquoise au survol */
+  color: white; /* Texte blanc au survol */
+}

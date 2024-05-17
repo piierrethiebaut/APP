@@ -1,0 +1,54 @@
+#monComptePanel.open {
+    right: 0;
+}
+
+#monComptePanel {
+    position: fixed;
+    top: 60px;
+    right: -30%;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(99, 199, 178,0.5);
+    transition: right 0.3s ease-in-out;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow-y: auto; /* Permet de faire défiler le contenu si nécessaire */
+    backdrop-filter: blur(15px);
+}
+
+#panelContent {
+    padding: 20px;
+}
+
+#monComptePanel h2 {
+    margin-top: 30px; /* Marge supérieure plus grande */
+    margin-bottom: 20px; /* Espacement avec les autres éléments */
+    text-align: center; /* Centrer le texte */
+    color: #fff; /* Vert kaki */
+}
+
+.info {
+    margin-bottom: 30px; /* Espacement entre les éléments */
+    border: 1px solid #ccc; /* Bordure grise autour des éléments */
+    padding: 15px; /* Espace à l'intérieur des boîtes */
+    border-radius: 8px; /* Coins arrondis */
+    background-color:rgba(40, 40, 40,1); 
+}
+
+label {
+    font-weight: bold;
+    color: #75ff7c;
+}
+
+span {
+    color: #fff; 
+}
+
+.panelContent form {
+	display: flex;
+	align-items: end;
+}
+
+.deconn_button {
+	padding: 8px 20px 8px 20px;
+}

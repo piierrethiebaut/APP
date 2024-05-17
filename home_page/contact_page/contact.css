@@ -1,0 +1,242 @@
+/*
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: url('https://cdn.pixabay.com/photo/2022/04/21/06/11/waves-7146711_1280.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: #63c7b2
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+    background-color: rgba(0, 0, 0,238);
+}
+
+.navbar {
+    width: 1200px;
+    max-width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem
+}
+
+.navbar .burger-menu-button {
+    color:#fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.action-button {
+    background-color: #63c7b2;
+    color: #120d31;
+    border: 1px solid #63c7b2;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    color:#fff;
+    border: 1px solid #fff;
+
+}
+
+.pro {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+
+}
+
+.pro:hover {
+    background-color: #fff;
+    color: #120d31
+}
+*/
+/*---------burger menu-------*/
+/*
+.burger-menu {
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 200px;
+    background: rgba(0, 0, 0,2);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+.burger-menu.open {
+    height: 320px;
+
+}
+
+.burger-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    height: 1px;
+    background-color: #fff;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+
+}
+
+
+.burger-menu .action-button {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.buttons-burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+*/
+/*----------Responsive-----------*/
+/*
+@media(max-width: 990px){
+    header {
+        background: none;
+    }
+    .navbar .links,
+    .navbar .action-button {
+        display: none;
+    }
+
+    .navbar .burger-menu-button {
+        display:block
+    }
+
+    .burger-menu {
+        display: block;
+    }
+}
+*/
+/* contact */
+
+.container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+.contact-form {
+    background-color: #FFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: #556B2F;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #556B2F;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #556B2F;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #556B2F;
+    
+}
+
+button[type="submit"] {
+    background-color: #556B2F;
+    color: #FFF;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #8FBC8F;
+}
+
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}

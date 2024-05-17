@@ -1,0 +1,445 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: url('https://cdn.pixabay.com/photo/2022/04/21/06/11/waves-7146711_1280.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: #63c7b2
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+    background-color: rgba(20,20,20,1);
+    backdrop-filter: blur(15px);
+    z-index: 500;
+}
+
+img {
+	object-fit: cover;
+	height: 150px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.navbar {
+    width: 1200px;
+    max-width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .burger-menu-button {
+    color:#fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    /*ici*/
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.action-button {
+    background-color: #63c7b2;
+    color: #120d31;
+    border: 1px solid #63c7b2;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    color:#fff;
+    border: 1px solid #fff;
+
+}
+
+.pro {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+
+}
+
+.pro:hover {
+    background-color: #fff;
+    color: #120d31
+}
+
+.texte_introduction_div {
+	display: flex;
+	justify-content: center;	
+}
+.texte_presentation_div {
+	display: none;
+	justify-content: center;	
+}
+
+.texte_presentation, .texte_introduction {
+	display: flex;
+	flex: 1;
+	padding: 10px;
+	margin: 10px 30px;
+	background-color: rgba(255,255,255,0.5);
+	backdrop-filter: blur(15px);
+	border: none;
+	border-radius: 5px;
+	color: white;
+	text-align: justify;
+	text-justify: inter-word;
+}
+.texte_presentation {
+	max-width: 800px;
+	font-size: 14px;
+}
+
+/*---------burger menu-------*/
+
+.burger-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    padding-bottom: 20px;
+    width: 200px;
+    background-color: rgba(0, 0, 0,0.7);
+    backdrop-filter: blur(15px);
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 999;
+}
+
+.burger-menu.open {
+    height: 320px;
+
+}
+
+.burger-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    height: 1px;
+    background-color: #fff;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+
+}
+
+
+.burger-menu .action-button {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.buttons-burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+/*----------Responsive-----------*/
+
+@media(max-width: 990px){
+    header {
+	display: flex;
+	flex: 1;
+        background-color: rgba(20,20,20,1);
+    }
+    .navbar .links,
+    .navbar .action-button {
+        display: none;
+    }
+
+    .navbar .burger-menu-button {
+        display:inline-block;
+    }
+
+    .burger-menu {
+        display: inline-block;
+    }
+}
+
+
+
+/* Formulaire */
+
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.devis-form {
+    background-color: #FFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.devis-form h2 {
+    text-align: center;
+    color: #556B2F;
+}
+
+.option {
+    margin-bottom: 20px;
+}
+
+.option input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.option label {
+    font-size: 18px;
+    color: #556B2F;
+}
+
+button[type="submit"] {
+    background-color: #556B2F;
+    color: #FFF;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #8FBC8F;
+}
+
+.total {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.total label {
+    font-size: 18px;
+    color: #556B2F;
+    font-weight: bold;
+}
+
+.total input[type="text"] {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #556B2F;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #556B2F;
+    text-align: center;
+}
+
+/* contact */
+
+
+
+.container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+.contact-form {
+    background-color: #FFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: #556B2F;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #556B2F;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #556B2F;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #556B2F;
+    
+}
+
+button[type="submit"] {
+    background-color: #556B2F;
+    color: #FFF;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #8FBC8F;
+}
+
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+/* Votre CSS existant */
+
+/* Animation de flottement */
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.section2 {
+    margin-top: 10px; /* Ajustez cette valeur selon la hauteur de votre navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.section {
+	position: relative;
+    flex: 1;
+    margin: 0 10px;
+    background-color: #B3FFEC;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Pour s'assurer que les coins arrondis s'affichent correctement */
+    animation: float 5s infinite alternate ease-in-out; /* Ajoutez l'animation de flottement */
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.section h2 {
+    font-size: 1em;
+    color: #007565;
+}
+
+.section p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+
+/* Style du voile opaque */
+/* Votre CSS existant */
+
+/* Style du voile opaque */
+#overlay {
+    display: none; /* Caché initialement */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Voile opaque */
+    opacity: 0; /* Opacité initiale */
+    transition: opacity 0,5s ease; /* Transition d'opacité pour une apparition fluide */
+    z-index: 9998; /* Pour être sûr que le voile soit au-dessus de tout le contenu */
+}
+
+/* Style du message de bienvenue */
+.welcome-message {
+    display: none; /* Caché initialement */
+    font-size: 4em;
+    color: #FFF;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Pour centrer le message au milieu de l'écran */
+    z-index: 10000; /* Pour être sûr que le message soit au-dessus du voile */
+}
+
+
+
+
+
+
+
+

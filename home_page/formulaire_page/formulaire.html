@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de devis</title>
+    <link rel="stylesheet" href="formulaire_page/formulaire.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalPrice = document.getElementById('final_price');
+            //totalPrice.id = "totalPrice";
+            //totalPrice.style.marginTop = "20px";
+            //document.forms[0].appendChild(totalPrice);
+        
+            function updatePrice() {
+                let price = 100; // Prix de base
+        
+                // Prix selon la taille de l'appartement
+                const sizePriceMap = {
+                    "0-15": 100,
+                    "16-31": 200,
+                    "32-47": 300,
+                    "48+": 400
+                };
+                const selectedSize = document.querySelector('input[name="taille"]:checked');
+                if (selectedSize) {
+                    price += sizePriceMap[selectedSize.value];
+                }
+        
+                // Prix supplémentaire pour la fréquence des soirées
+                const frequencyPriceMap = {
+                    "1-3": 20,
+                    "4-7": 40,
+                    "8-14": 60,
+                    ">14": 80
+                };
+                const selectedFrequency = document.querySelector('input[name="frequency"]:checked');
+                if (selectedFrequency) {
+                    price += frequencyPriceMap[selectedFrequency.value];
+                }
+        
+                // Prix supplémentaire pour le nombre d'invités
+                const guestsPriceMap = {
+                    "5-10": 40,
+                    "11-30": 55,
+                    "31-50": 75,
+                    ">50": 100
+                };
+                const selectedGuests = document.querySelector('input[name="nombre_invites"]:checked');
+                if (selectedGuests) {
+                    price += guestsPriceMap[selectedGuests.value];
+                }
+        
+                // Coût supplémentaire selon l'emplacement de l'habitation
+                const locationPriceMap = {
+                    "urbaine": 0,
+                    "rurale": 50
+                };
+                const selectedLocation = document.querySelector('input[name="emplacement"]:checked');
+                if (selectedLocation) {
+                    price += locationPriceMap[selectedLocation.value];
+                }
+        
+                // Surcoût pour les soirées commençant à minuit ou plus tard
+                const startTime = document.getElementById('heure_debut').value;
+                const midnightOrLater = startTime && startTime >= "00:00";
+                if (midnightOrLater) {
+                    price += 60; // Ajouter un surcoût fixe de 30€ pour les soirées tardives
+                }
+        
+                totalPrice.textContent = "Prix total estimé : " + price + " €";
+            }
+        
+            document.querySelectorAll('input[type=radio], input[type=checkbox], input[type=time]').forEach(input => {
+                input.addEventListener('change', updatePrice);
+            });
+        
+            updatePrice(); // Initialisation du prix
+        });
+        </script>
+        
+</head>
+<body>
+    <form class="formulaire_form" action="submit_form.php" method="POST">
+        <h2>Formulaire de Devis</h2>
+        
+        <h3>Informations Personnelles</h3>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required>
+        
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required>
+        
+       <label for="date_naissance">Date de naissance:</label>
+       <input type="date" id="date_naissance" name="date_naissance" required>
+   
+       <label for="adresse">Adresse:</label>
+       <input type="text" id="adresse" name="adresse" required>
+
+
+       <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="numero">Numéro de téléphone:</label>
+        <input type="text" id="numero" name="numero" required>
+
+        <h3>Informations sur l'habitacle</h3>
+        
+<fieldset>
+    <legend>Taille de l'appartement (en m²):</legend>
+    <label for="taille1">
+        <input type="radio" id="taille1" name="taille" value="0-15" required> 0 - 15
+    </label>
+    <label for="taille2">
+        <input type="radio" id="taille2" name="taille" value="16-31"> 16 - 31
+    </label>
+    <label for="taille3">
+        <input type="radio" id="taille3" name="taille" value="32-47"> 32 - 47
+    </label>
+    <label for="taille4">
+        <input type="radio" id="taille4" name="taille" value="48+"> Au-delà de 47
+    </label>
+</fieldset>
+
+        
+        <fieldset>
+    <legend>Emplacement de l'habitation:</legend>
+    <label for="zone_urbaine">
+        <input type="radio" id="zone_urbaine" name="emplacement" value="urbaine" required> Zone urbaine
+    </label>
+    <label for="zone_rurale">
+        <input type="radio" id="zone_rurale" name="emplacement" value="rurale"> Zone rurale
+    </label>
+</fieldset>
+
+
+        <label for="etage">Étage de l'appartement:</label>
+        <input type="number" id="etage" name="etage" required>
+
+        <fieldset>
+    <legend>Nombre de pièces à équiper :</legend>
+    <label for="une_piece">
+        <input type="radio" id="une_piece" name="nombre_pieces" value="1" required> 1
+    </label>
+    <label for="deux_pieces">
+        <input type="radio" id="deux_pieces" name="nombre_pieces" value="2"> 2
+    </label>
+    <label for="trois_pieces">
+        <input type="radio" id="trois_pieces" name="nombre_pieces" value="3"> 3
+    </label>
+</fieldset>
+
+
+
+        <label for="isolation">Qualité de l'isolation sonore:</label>
+        <select id="isolation" name="isolation">
+            <option value="faible">Faible</option>
+            <option value="moyenne">Moyenne</option>
+            <option value="élevée">Élevée</option>
+        </select>
+
+        <h3>Détails sur les Soirées</h3>
+        
+        <fieldset>
+    <legend>Fréquence des soirées par mois :</legend>
+    <label for="freq1">
+        <input type="radio" id="freq1" name="frequency" value="1-3" required> 1-3
+    </label>
+    <label for="freq2">
+        <input type="radio" id="freq2" name="frequency" value="4-7"> 4-7
+    </label>
+    <label for="freq3">
+        <input type="radio" id="freq3" name="frequency" value="8-14"> 8-14
+    </label>
+    <label for="freq4">
+        <input type="radio" id="freq4" name="frequency" value=">14"> Plus de 14
+    </label>
+</fieldset>
+
+
+
+        <fieldset>
+    <legend>Nombre moyen d'invités :</legend>
+    <label for="invites1">
+        <input type="radio" id="invites1" name="nombre_invites" value="5-10" required> 5-10
+    </label>
+    <label for="invites2">
+        <input type="radio" id="invites2" name="nombre_invites" value="11-30"> 11-30
+    </label>
+    <label for="invites3">
+        <input type="radio" id="invites3" name="nombre_invites" value="31-50"> 31-50
+    </label>
+    <label for="invites4">
+        <input type="radio" id="invites4" name="nombre_invites" value=">50"> Plus de 50
+    </label>
+</fieldset>
+
+
+        <label for="type_musique">Type de musique jouée:</label>
+        <input type="text" id="type_musique" name="type_musique" required>
+
+        <label for="heure_debut">Heure typique de début:</label>
+        <input type="time" id="heure_debut" name="heure_debut" required>
+
+        <label for="heure_fin">Heure typique de fin:</label>
+        <input type="time" id="heure_fin" name="heure_fin" required>
+
+        <h3>Préférences et Attentes</h3>
+        
+
+        <label for="complaints">Avez-vous déjà reçu des plaintes de voisins concernant le bruit?</label>
+        <input type="text" id="complaints" name="complaints" required>
+
+        <label for="service_expectations">Qu'attendez-vous de notre système de gestion du bruit?</label>
+        <textarea id="service_expectations" name="service_expectations" required></textarea>
+
+        <label for="additional_features">Intéressé par des fonctionnalités supplémentaires?</label>
+        <input type="text" id="additional_features" name="additional_features" required>
+
+        <label for="terms_conditions">Acceptez-vous les termes et conditions?</label>
+        <input type="checkbox" id="terms_conditions" name="terms_conditions" required>
+
+	<div id="final_price"></div>
+
+        <button type="submit">Envoyer le Devis</button>
+    </form>
+</body>
+</html>
